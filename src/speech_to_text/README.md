@@ -2,7 +2,7 @@
 
 ## Install
 ```commandline
-pip install TTS
+pip install openai pyaudio wave
 ```
 
 ## Example
