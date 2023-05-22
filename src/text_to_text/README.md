@@ -11,7 +11,7 @@ pip install gpt4all
 ```python
 from gpt4all import GPT4All
 
-gptj = GPT4All("ggml-gpt4all-j-v1.3-groovy")
+gptj = GPT4All("ggml-text_to_text-j-v1.3-groovy")
 messages = [{"role": "user", "content": "Name 3 colors"}]
 gptj.chat_completion(messages)
 ```
