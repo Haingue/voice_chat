@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Python ###
+**/__pycache__/**
+### VENV ###
+env
+venv
+
+### Project ###
+recorded_audio.wav
+tts_output.wav
