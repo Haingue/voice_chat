@@ -6,5 +6,5 @@ import whisper
 
 # model = whisper.load_model("../../data/models/stt/whisper-base/pytorch_model.bin")
 model = whisper.load_model("base")
-result = model.transcribe("data/dataset/speech/harvard.wav")
+result = model.transcribe("data/dataset/speech/fr_micro_service.wav")
 print(result["text"])

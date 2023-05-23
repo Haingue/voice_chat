@@ -15,9 +15,7 @@ def main():
     ttt_model = initialize_ttt()
     initialize_time = time.time() - initialize_time
 
-    print("")
-    print("")
-    print("Start voice chat.............")
+    print("\n\nStart voice chat.............")
     # TODO detect key word in audio
 
     # loop in chat
@@ -31,7 +29,7 @@ def main():
 
         # Convert speech to text
         stt_output: str = transcribe(stt_model, input_path)
-        print("Transcription: {0}".format(stt_output))
+        print("\n\nTranscription: {0}".format(stt_output))
 
         ttt_output: str
         if stt_output.strip() == "Merci." or stt_output.strip() == "Thank you.":
@@ -41,19 +39,23 @@ def main():
         else:
             # Generate answer
             ttt_output = chat_completion(ttt_model, stt_output, context)
-        print("Reflection: {0}".format(ttt_output))
+        print("\n\nReflection: %s" % ttt_output)
 
         # Read answer
-        # TODO don't save into file, play directly
-        read_text(ttt_output)
-        print("Voice: done")
+        try:
+            # TODO don't save into file, play directly
+            tts_output = read_text(ttt_output)
+            print("\n\nSpeech: %s" % tts_output)
 
-        play_wav("tts_output.wav")
-        print("Reading: done")
+            play_wav(tts_output)
+            print("\n\nReading speech: done")
+        except Exception as error:
+            print("\n\nError:")
+            print(error)
         chat_time = time.time() - chat_time
         chat_times.append(chat_time)
 
-    print("Initialize time: %ss" % initialize_time)
+    print("\n\nInitialize time: %ss" % initialize_time)
     print("Chat time avg: %ss" % numpy.mean(chat_times))
     print("End of voice chat, Bye Bye !")
 
