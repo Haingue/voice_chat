@@ -5,6 +5,7 @@
 pip install openai pyaudio wave
 pip install git+https://github.com/openai/whisper.git
 ```
+
 ```bash
 # on Ubuntu or Debian
 sudo apt update && sudo apt install ffmpeg
